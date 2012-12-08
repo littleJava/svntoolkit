@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<repository>
+    <!-- auth user -->
+    <user>
+        <name>bjhbliu</name>
+        <password>xxxxx</password>
+    </user>
+    <!--development branch -->
+    <branch>
+        <url>https://svn.ws.netease.com/microblog/products/butter/branches/user_level</url>
+        <!-- 
+        <url>https://svn.ws.netease.com/microblog/products/butter-microblog/branches/3.11</url>
+        <url>https://svn.ws.netease.com/microblog/products/butter/branches/2.8.7</url>
+        <url>https://svn.ws.netease.com/public/tinyblog/tsync/branches/tsync-export</url>
+        <url>https://svn.ws.netease.com/public/tinyblog/cms/mvn/branches/cms-hbliu-tsync-export/cms-backend</url>
+        <url>https://svn.ws.netease.com/public/tinyblog/mvn/trunk/t</url>
+        -->
+        <!--
+        <url>https://svn.ws.netease.com/public/tinyblog/cms/mvn/branches/cms-hbliu-tsync-export/cms-backend</url>
+        <url>https://svn.ws.netease.com/microblog/products/butter-tinyblog/milestones/release-6.1.3</url>
+        -->
+        <startRevision>277545</startRevision>
+        <endRevision>-1</endRevision>
+        <targetUsers>
+            <value>bjhbliu</value>  
+        </targetUsers>      
+    </branch>
+    <!--trunk working copy-->
+    <workingCopy>
+        <path>D:/workspace/butter-liu</path>
+        <!-- 
+        <path>D:/workspace/extapi-t-liu</path>
+        <path>D:/workspace/butter-microblog-liu</path>
+        <path>D:/workspace/butter-tinyblog-liu</path>
+        <path>D:/workspace/tsync-liu</path>
+        <path>D:/workspace/cms-liu</path>
+        --> 
+    </workingCopy>
+</repository>
