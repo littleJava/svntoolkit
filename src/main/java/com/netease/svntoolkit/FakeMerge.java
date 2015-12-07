@@ -49,18 +49,21 @@ public class FakeMerge {
         
         //access the changelog from svn
         mergeChanges(repository,repositoryInfo.getBranch(),repositoryInfo.getWc().getPath());
-        System.out.println("修改或新添加的文件：");
+        System.out.println("updated or added file:");
         for (String file : updated) {
             System.out.println(file);
         }
-        System.out.println("删除的文件：");
+        System.out.println("deleted file:");
         for (String file : deleted) {
             System.out.println(file);
         }
     }
     
-    public static String getCtx(String branchUrl) throws SVNException{
-        return SVNURL.parseURIEncoded(branchUrl).getPath();
+    public static File makeLocalFile(String workingCopy,String fileSvnPath,String branchUrl) throws SVNException{
+        String branchPath = SVNURL.parseURIEncoded(branchUrl).getPath();// such as :/svn/das/branches/ali01827194_CP_20150515_das
+        String branchName = branchPath.substring(branchPath.lastIndexOf('/') + 1);
+        String relatePath = fileSvnPath.substring(fileSvnPath.indexOf("/" + branchName));
+        return new File(workingCopy + relatePath);
     }
     
     public static SVNRepository getRepository(String branchUrl,User user) throws SVNException{
@@ -113,8 +116,10 @@ public class FakeMerge {
                             + ( ( svnEntryPath.getCopyPath( ) != null ) ? " (from "
                                     + svnEntryPath.getCopyPath( ) + " revision "
                                     + svnEntryPath.getCopyRevision( ) + ")" : "" ) );
-                    
-                    File localFile = new File(workingCopy + svnEntryPath.getPath().substring(getCtx(branch.getUrl()).length()));//generate file in the temporary dir
+
+
+//                    File localFile = new File(workingCopy + svnEntryPath.getPath().substring(getCtx(branch.getUrl()).length()));//generate file in the temporary dir
+                    File localFile = makeLocalFile(workingCopy,svnEntryPath.getPath(),branch.getUrl());//generate file in the temporary dir
                     if (svnEntryPath.getType() == SVNLogEntryPath.TYPE_DELETED) {
                         localFile.delete();
                         deleted.add(svnEntryPath.getPath());

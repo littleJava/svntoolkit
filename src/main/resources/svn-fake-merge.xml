@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<repositoryInfo>
+    <user>
+        <name>svn-username</name>
+        <password></password>
+    </user>
+    <branch>
+        <url>http://svn-url/</url>
+        <startRevision>7081</startRevision>
+        <endRevision>-1</endRevision>
+        <targetUsers>
+            <entry>svn-committer1</entry>
+            <entry>svn-committer2</entry>
+        </targetUsers>
+    </branch>
+    <workingCopy>
+        <!--download to local dir-->
+        <path>d:/das-branch</path>
+    </workingCopy>
+</repositoryInfo>
